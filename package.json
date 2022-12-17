@@ -1,0 +1,57 @@
+{
+  "name": "system-design-monorepo",
+  "version": "0.0.1",
+  "description": "An interactive site to learn system design step by step",
+  "packageManager": "pnpm@7.9.2",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "pnpm-install": "pnpm install",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx --cache ./",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx --quiet --cache ./",
+    "test": "pnpm unit:test && pnpm e2e:test",
+    "unit:test": "vitest run",
+    "e2e:test": "playwright test",
+    "e2e:prepare": "TODO",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "prepare": "husky install",
+    "dev:docs": "island dev docs",
+    "build:docs": "island build docs && cp -r ./docs/.island/index.html ./docs/.island/dist",
+    "start:docs": "island start docs",
+    "build": "turbo run build",
+    "dev": "turbo run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vincenthou/system-design.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincenthou/system-design/issues"
+  },
+  "homepage": "https://github.com/vincenthou/system-design#readme",
+  "dependencies": {
+    "@antv/x6": "^2.0.9",
+    "@code-hike/mdx": "^0.7.4",
+    "islandjs": "^0.7.23",
+    "shiki": "^0.11.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@playwright/test": "^1.29.0",
+    "eslint": "^8.30.0",
+    "husky": "^8.0.2",
+    "pnpm": "7.9.2",
+    "prettier": "^2.8.1",
+    "turbo": "^1.6.3",
+    "vitest": "^0.25.8"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,tsx,ts,json}": [
+      "eslint --fix"
+    ]
+  }
+}
